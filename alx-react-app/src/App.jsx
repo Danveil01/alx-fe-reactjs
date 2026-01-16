@@ -1,15 +1,16 @@
 import WelcomeMessage from './components/WelcomeMessage'; // Add this line
+import Header from './Header';
+import MainContent from './components/MainContent';
+import Footer from './components/Footer';
 
 function App() {
   return (
     <>
       {/* Include the WelcomeMessage component here */}
       <WelcomeMessage />
-      
-      {/* You can leave the existing Vite boilerplate below or delete it */}
-      <div>
-        <h1>Vite + React</h1>
-      </div>
+      <Header/>
+      <MainContent/>
+      <Footer/>
     </>
   )
 }
