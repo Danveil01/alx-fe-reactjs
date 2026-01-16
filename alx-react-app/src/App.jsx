@@ -1,4 +1,4 @@
-import Header from './Header';
+import Header from './components/Header';
 import WelcomeMessage from './components/WelcomeMessage'; // Add this line
 import MainContent from './components/MainContent';
 import Footer from './components/Footer';
