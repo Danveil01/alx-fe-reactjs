@@ -1,28 +1,17 @@
-import { useState } from 'react'
-import './App.css'
-import WelcomeMessage from './components/WelcomeMessage'
-
+import WelcomeMessage from './components/WelcomeMessage'; // Add this line
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
+      {/* Include the WelcomeMessage component here */}
       <WelcomeMessage />
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
+      
+      {/* You can leave the existing Vite boilerplate below or delete it */}
+      <div>
+        <h1>Vite + React</h1>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
 
-export default App
+export default App;
