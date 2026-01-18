@@ -1,6 +1,6 @@
 function Footer(){
     return (
-        <footer>
+        <footer style={{ borderTop: '2px solid #ccc', marginTop: '10px', textAlign: 'center', padding: '10px' }}>
             <p>© 2023 City Lovers</p>
         </footer>
     );
