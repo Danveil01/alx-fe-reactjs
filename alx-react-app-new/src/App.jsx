@@ -8,11 +8,11 @@ function App() {
   return (
     <>
       {/* Include the WelcomeMessage component here */}
-      <Header />
+      <Header/>
       <UserProfile name="Alice" age="25" bio="Loves hiking and photography" />
       <WelcomeMessage />
-      <MainContent />
-      <Footer />
+      <MainContent/>
+      <Footer/>
     </>
   )
 }
