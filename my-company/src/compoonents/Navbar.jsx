@@ -7,13 +7,13 @@ function Navbar() {
       color: '#fff', 
       padding: '10px', 
       display: 'flex', 
-      justifyContent: 'center',
-      gap: '20px'
+      justifyContent: 'center', // Use 'space-between' or 'center'
+      listStyle: 'none' 
     }}>
-      <Link style={{ color: '#fff', textDecoration: 'none' }} to="/">Home</Link>
-      <Link style={{ color: '#fff', textDecoration: 'none' }} to="/about">About</Link>
-      <Link style={{ color: '#fff', textDecoration: 'none' }} to="/services">Services</Link>
-      <Link style={{ color: '#fff', textDecoration: 'none' }} to="/contact">Contact</Link>
+      <Link style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }} to="/">Home</Link>
+      <Link style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }} to="/about">About</Link>
+      <Link style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }} to="/services">Services</Link>
+      <Link style={{ margin: '0 10px', color: '#fff', textDecoration: 'none' }} to="/contact">Contact</Link>
     </nav>
   );
 }
