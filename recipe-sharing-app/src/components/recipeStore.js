@@ -1,27 +1,54 @@
 import { create } from 'zustand';
 
-const useRecipeStore = create((set) => ({
+ const useRecipeStore = create((set) => ({
   recipes: [],
-  // Action to add a new recipe to the list
-  addRecipe: (newRecipe) => set((state) => ({ 
-    recipes: [...state.recipes, newRecipe] 
-  })),
-
-  // Step 1: Add Delete Action
-  deleteRecipe: (recipeId) => set((state) => ({
-    recipes: state.recipes.filter(recipe => recipe.id !== recipeId)
-  })),
-  // Step 1: Add Update Action
-  updateRecipe: (updatedRecipe) => set((state) => ({
-    recipes: state.recipes.map(recipe => 
+  searchTerm: '',
+  setSearchTerm: (term) => {
+    set({ searchTerm: term });
+    // Trigger filtering every time the search term is updated
+    set((state) => ({
+      filteredRecipes: state.recipes.filter((recipe) =>
+        recipe.title.toLowerCase().includes(term.toLowerCase())
+      ),
+    }));
+  },
+  filteredRecipes: [],
+  addRecipe: (newRecipe) => set((state) => {
+    const updatedRecipes = [...state.recipes, newRecipe];
+    return { 
+      recipes: updatedRecipes,
+      // Ensure the search also applies to the newly added recipe
+      filteredRecipes: updatedRecipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      )
+    };
+  }),
+  deleteRecipe: (recipeId) => set((state) => {
+    const updatedRecipes = state.recipes.filter(recipe => recipe.id !== recipeId);
+    return {
+      recipes: updatedRecipes,
+      filteredRecipes: updatedRecipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      )
+    };
+  }),
+  updateRecipe: (updatedRecipe) => set((state) => {
+    const updatedRecipes = state.recipes.map(recipe => 
       recipe.id === updatedRecipe.id ? updatedRecipe : recipe
-    )
+    );
+    return {
+      recipes: updatedRecipes,
+      filteredRecipes: updatedRecipes.filter(recipe => 
+        recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+      )
+    };
+  }),
+  // This helps re-trigger filtering if needed manually
+  filterRecipes: () => set((state) => ({
+    filteredRecipes: state.recipes.filter((recipe) =>
+      recipe.title.toLowerCase().includes(state.searchTerm.toLowerCase())
+    ),
   })),
-
-  // Action to initialize or update the entire recipes list
-  setRecipes: (recipes) => set({ recipes }),
 }));
 
-
-
-export { useRecipeStore };
+export default useRecipeStore;
