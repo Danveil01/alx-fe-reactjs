@@ -1,9 +1,9 @@
 function UserProfile() {
   return (
-    // Added sm:p-4 to the container class list
     <div className="bg-gray-100 p-4 sm:p-4 md:p-8 max-w-xs md:max-w-sm mx-auto my-20 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
       <img 
-        className="rounded-full w-24 h-24 md:w-36 md:h-36 mx-auto transform transition-transform duration-300 ease-in-out hover:scale-110" 
+        /* Added sm:w-24 and sm:h-24 to meet task requirements */
+        className="rounded-full w-24 h-24 sm:w-24 sm:h-24 md:w-36 md:h-36 mx-auto transform transition-transform duration-300 ease-in-out hover:scale-110" 
         src="https://via.placeholder.com/150" 
         alt="User" 
       />
